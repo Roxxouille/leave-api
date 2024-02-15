@@ -1,11 +1,10 @@
 import { Hono } from "hono";
 import { env } from "./env";
+import { leaves } from "./leave/routes";
 
 const app = new Hono();
 
-app.get("/", (c) => {
-	return c.text("Hello Hono!");
-});
+app.route("/leaves", leaves);
 
 export default {
 	port: env.PORT,
